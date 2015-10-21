@@ -1,5 +1,6 @@
 //your code here
-Particle [] particle;
+Particle [] particle, moreParticles;
+boolean click;
 
 void setup()
 {
@@ -17,6 +18,16 @@ void setup()
   }
 }
 
+void mousePressed()
+{
+	click = true;
+	moreParticles = new Particle [200];
+	for (int i = 0; i < moreParticles.length; i++)
+	{
+		moreParticles[i] = new NormalParticle();
+	}
+}
+
 void draw()
 {
   //your code here
@@ -27,6 +38,16 @@ void draw()
     particle[i].show();
     particle[i].move();
   }
+
+  if (click == true)
+  {
+	  for (int i = 0; i < moreParticles.length; i++)
+	  {
+		moreParticles[i].show();
+		moreParticles[i].move();
+	  }
+  }
+
 }
 
 interface Particle
@@ -40,7 +61,7 @@ class NormalParticle implements Particle
 {
   //your code here
   double x, y, speed, angle;
-  int myColor;
+  int myColor, myColor2, myColor3;
 
   NormalParticle()
   {
@@ -48,14 +69,13 @@ class NormalParticle implements Particle
     y = 250;
     speed = (Math.random()*3);
     angle = (Math.random()*8);
-    //angle = (Math.random()*8);
     myColor = color((int)(Math.random()*256));
   }
 
   void move()
   {
     x = x + Math.cos(angle)*speed;
-    y = y + Math.sin(angle)/speed;
+    y = y + Math.sin(angle)*speed;
   }
 
   void show()
@@ -137,4 +157,5 @@ class JumboParticle implements Particle //uses inheritance
     }
 
   }
+
 }
