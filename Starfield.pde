@@ -69,7 +69,7 @@ class NormalParticle implements Particle
     y = 250;
     speed = (Math.random()*3);
     angle = (Math.random()*8);
-    myColor = color((int)(Math.random()*256));
+    myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
   }
 
   void move()
@@ -81,7 +81,7 @@ class NormalParticle implements Particle
   void show()
   {
     noStroke();
-    fill(myColor, (int)(Math.random()*256), (int)(Math.random()*256));
+    fill(myColor);
     ellipse((float)x, (float)y, 5, 5);
   }
 }
