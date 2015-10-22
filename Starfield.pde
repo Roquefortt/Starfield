@@ -20,12 +20,12 @@ void setup()
 
 void mousePressed()
 {
-	click = true;
-	moreParticles = new Particle [200];
-	for (int i = 0; i < moreParticles.length; i++)
-	{
-		moreParticles[i] = new NormalParticle();
-	}
+  click = true;
+  moreParticles = new Particle [200];
+  for (int i = 0; i < moreParticles.length; i++)
+  {
+    moreParticles[i] = new NormalParticle();
+  }
 }
 
 void draw()
@@ -41,11 +41,11 @@ void draw()
 
   if (click == true)
   {
-	  for (int i = 0; i < moreParticles.length; i++)
-	  {
-		moreParticles[i].show();
-		moreParticles[i].move();
-	  }
+    for (int i = 0; i < moreParticles.length; i++)
+    {
+    moreParticles[i].show();
+    moreParticles[i].move();
+    }
   }
 
 }
@@ -61,7 +61,7 @@ class NormalParticle implements Particle
 {
   //your code here
   double x, y, speed, angle;
-  int myColor, myColor2, myColor3;
+  int myColor;
 
   NormalParticle()
   {
@@ -108,7 +108,7 @@ class OddballParticle implements Particle //uses an interface
 
   public void show()
   {
-	fill(255);
+  fill(255);
     ellipse((float)x-8, (float)y+9, 10, 10);
     ellipse((float)x+8, (float)y+9, 10, 10);
 
@@ -117,8 +117,8 @@ class OddballParticle implements Particle //uses an interface
 
     if (x > 510 || x < -10 || y > 510 || y < -10)
     {
-    	x = 250;
-    	y = 250;
+      x = 250;
+      y = 250;
     }
 
   }
@@ -132,10 +132,10 @@ class JumboParticle implements Particle //uses inheritance
 
   JumboParticle()
   {
-  	x = 250;
-  	y = 250;
+    x = 250;
+    y = 250;
 
-  	speed = (Math.random()*1);
+    speed = (Math.random()*1);
     angle = (int)(Math.random()*8);
   }
 
@@ -147,13 +147,13 @@ class JumboParticle implements Particle //uses inheritance
 
   public void show()
   {
-  	fill(100, 240, 40);
-  	ellipse((float)x, (float)y, 25, 25);
+    fill(100, 240, 40);
+    ellipse((float)x, (float)y, 25, 25);
 
-  	if (x > 510 || x < -10 || y > 510 || y < -10)
+    if (x > 510 || x < -10 || y > 510 || y < -10)
     {
-    	x = ((int)Math.random()*500);
-    	y = ((int)Math.random()*500);
+      x = 250;
+      y = 250;
     }
 
   }
